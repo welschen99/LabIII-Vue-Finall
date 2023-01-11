@@ -1,4 +1,4 @@
-# calculadora
+# Lab lll - Proyecto Final - Vue 3
 
 ## Project setup
 ```
