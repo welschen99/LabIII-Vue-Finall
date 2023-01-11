@@ -1,14 +1,36 @@
 <template>
-  <div id="nav">
-    <router-link to="/" v-if="!username">Login</router-link>
-    <router-link to="/" v-if="username">Log out</router-link>
-    <router-link to="/home" >Home</router-link>
-    <router-link to="/movimientos" v-if="username">Movimientos</router-link> 
-    <router-link to="/coins" v-if="username">Coins</router-link>
-    <router-link to="/resumen" v-if="username">Resumen</router-link>
-  </div>
+  <nav class="navbar flex-column navbar-expand-lg text-white" style="background-color: #e9e9e952">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home"  style="color:#050a6b" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <img src="./assets/logo.svg" alt="Vue Logo"  >
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="color:black"></span>
+    </button>
+    <br>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        <a class="nav-link active" aria-current="page" style="color: black" href="/home">Home</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#/movimientos" v-if="username"><router-link style="color: #050a6b"  to="/movimientos">Movimientos</router-link></a> 
+      </li>
+        <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#/coins" v-if="username"><router-link style="color: #050a6b;"  to="/coins">Coins</router-link></a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link active" aria-current="page" v-if="username"><router-link style="color: #050a6b"  to="/resumen">Resumen</router-link></a>
+      </li>
+    </ul>
+      <a class="nav-link active justify-content-end" aria-current="page" style="color: #050a6b;" v-if="username != ''">Bienvenido  <strong>{{ username }} </strong> </a>
+      <a class="nav-link active justify-content-end" aria-current="page" style="color: #050a6b;" href="/" v-if="username"><button type="button" class="btn btn-danger">Log out</button></a>
+      <a class="nav-link active" aria-current="page" style="color: #050a6b;" href="/" v-if="!username"><button type="button" class="btn btn-success">Login</button></a>
+    </div>
+    </div>
+</nav>
+<br>
   <router-view/>
-<p v-if="username != ''">Benvenuti {{ username }}</p>
 
   
 </template>

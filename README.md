@@ -23,6 +23,7 @@ npm run build
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+
 ### Subir al repositorio de Github
 ```
 git remote add origin https://github.com/welschen99/LabIII-Vue-Finall.git
