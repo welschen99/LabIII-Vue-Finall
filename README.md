@@ -3,6 +3,11 @@
 ## Project setup
 ```
 npm install
+npm install vue
+npm install axios
+npm install --save apexcharts
+npm install --save vue-apexcharts
+npm install vue-loading-overlay@^6.0 
 ```
 
 ### Compiles and hot-reloads for development
