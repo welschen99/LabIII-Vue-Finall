@@ -15,11 +15,11 @@
             <form class="col-xl-9" style="margin:auto;text-align:left" v-on:submit.prevent="submitForm">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Cantidad</label>
-                    <input  type="number" class="form-control" :max='MaxCriptoAmount' min="0" step="0.0000000001" v-model="criptoAmount" @input="adjustMoneyAmount">
+                    <input type="number" class="form-control" :max='MaxCriptoAmount' min="0" step="0.0000000001" v-model.number="criptoAmount" @input="adjustMoneyAmount">
                 </div><br>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Precio</label>
-                    <input v-model.number="moneyAmount" @input="adjustCriptoAmount" class="form-control">
+                    <input  v-model.number="moneyAmount" @input="adjustCriptoAmount" class="form-control">
                 </div><br>
             <div v-if="accion == 'vender'">
                 <button type="buttom" class="btn btn-success" :disabled="criptoAmount<0 || moneyAmount<0 ||  criptoAmount>MaxCriptoAmount">{{accion}}</button>
@@ -108,9 +108,9 @@ export default {
             }
         },
         username() {
-            var x = this.$store.state.username;
-            console.log(x)
-            return x;
+            var user = this.$store.state.username;
+            this.array.user_id = user
+             return user
         },
         
         
@@ -122,9 +122,8 @@ export default {
             return ars
         },
         adjustMoneyAmount() {
-            debugger
 			if (this.accion == "comprar") {
-                this.moneyAmount = (
+				this.moneyAmount = (
 					this.coins[0].data.totalAsk * this.criptoAmount
 				).toFixed(2);
 			} else {
@@ -134,8 +133,9 @@ export default {
 			}
 		},
 		adjustCriptoAmount() {
+            debugger
 			if (this.accion == "comprar") {
-                this.criptoAmount = (
+				this.criptoAmount = (
 					this.moneyAmount / this.coins[0].data.totalAsk
 				).toFixed(2);
 			} else {
