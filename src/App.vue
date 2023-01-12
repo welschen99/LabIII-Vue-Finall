@@ -11,13 +11,13 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-        <a class="nav-link active" aria-current="page" style="color: black" href="/home">Home</a>
+        <a class="nav-link active" aria-current="page"><router-link style="color: #050a6b"  to="/home">Home</router-link></a>
       </li>
         <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#/movimientos" v-if="username"><router-link style="color: #050a6b"  to="/movimientos">Movimientos</router-link></a> 
+        <a class="nav-link active" aria-current="page"  v-if="username"><router-link style="color: #050a6b"  to="/movimientos">Movimientos</router-link></a> 
       </li>
         <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#/coins" v-if="username"><router-link style="color: #050a6b;"  to="/coins">Coins</router-link></a>
+        <a class="nav-link active" aria-current="page" v-if="username"><router-link style="color: #050a6b;"  to="/coins">Coins</router-link></a>
       </li>
         <li class="nav-item">
         <a class="nav-link active" aria-current="page" v-if="username"><router-link style="color: #050a6b"  to="/resumen">Resumen</router-link></a>
