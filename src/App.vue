@@ -29,7 +29,6 @@
     </div>
     </div>
 </nav>
-<br>
   <router-view/>
 
   
@@ -41,13 +40,10 @@ export default {
     username() {
       return this.$store.state.username;
     },
-    movimientos(){//accede la bbdd de vuex(busca en el store)
-            var x = this.$store.state.movimientos
-            return x;//una computer propierty que busca de vuex la lista de technologies
-    }
   },
   beforeCreate() {//antes de que cargue todo, llama la lista de vuex
-        this.$store.commit("pullCripto")
+        this.$store.commit("pullCripto"),
+        this.$store.commit("pullMovimientos")
   },
 }
 </script>

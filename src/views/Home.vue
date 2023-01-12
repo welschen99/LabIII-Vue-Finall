@@ -6,10 +6,10 @@
             <p class="lead" style="color:#c3c3c3;text-align:right;">Descubrí el increíble mundo de las criptomonedas en la plataforma más segura de Latinoamérica, con más de 15 activos para invertir.</p>
         </div>
         <div class="col-5">
-        <img src="../assets/logo2.png" alt="Vue Logo" style="margin:auto">
+            <br>
+        <img src="../assets/logo2.png" alt="Vue Logo" >
         </div>
     </div>
-        <br>
         <button type="button" class="btn btn-primary btn-lg" disabled >Para ver el contenido debera loguearse</button>
     </div>
 </template>

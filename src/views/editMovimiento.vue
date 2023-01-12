@@ -1,7 +1,9 @@
 <template>
-	<div>
-        <h1>Editar Movimiento</h1>
-		<form v-on:submit.prevent="submitForm" class="col-xl-9" style="margin:auto;text-align:left">
+    <br>
+	<div class="card border-primary mb-12 shadow-lg" style="max-width: 80%;margin:auto">
+        <div class="card-header"><h1>Editar Movimiento</h1></div>
+        <div class="card-body">
+		<form v-on:submit.prevent="submitForm" class="col-xl-10" style="margin:auto;text-align:left">
             <div v-if="Item._id!=null">
                 <div class="form-group" >
                     <label for="1">Usuario </label>     
@@ -33,6 +35,7 @@
             </div>
         <div v-else>Cargando</div>
         </form>
+    </div>
         {{movimiento}}
     </div>
 </template>
