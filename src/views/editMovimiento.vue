@@ -104,6 +104,7 @@ export default {
     },
     methods:{
         adjustMoneyAmount() {
+            var loader = this.$loading.show({container: false,canCancel: true});
 			if (this.Item.action == "purchase") {
 				this.Item.money = (
 					parseFloat(this.div) * parseFloat(this.Item.crypto_amount)
@@ -113,8 +114,10 @@ export default {
 					parseFloat(this.div) * parseFloat(this.Item.crypto_amount)
 				).toFixed(2);
 			}
+            loader.hide()
 		},
 		adjustCriptoAmount() {
+            var loader = this.$loading.show({container: false,canCancel: true});
 			if (this.Item.action == "purchase") {
 				this.Item.crypto_amount = (
 					parseFloat(this.Item.money) / parseFloat(this.div)
@@ -124,6 +127,7 @@ export default {
 					parseFloat(this.Item.money) / parseFloat(this.div)
 				).toFixed(2);
 			}
+            loader.hide()
 		},
         submitForm(){
             let loader = this.$loading.show({container: false,canCancel: true});

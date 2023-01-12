@@ -1,10 +1,10 @@
 <template>
 	<div>
         <div class="card border-primary mb-12 shadow-lg" style="max-width: 80%;margin:auto">
-        <div class="card-header"><h1>{{accion}} {{username}} {{coins[0].name}}</h1></div>
+        <div class="card-header"><h1>{{accion}} {{coins[0].name}}</h1></div>
         <div class="card-body">
         <div v-if="MaxCriptoAmount==0 && accion =='vender'">Usted no posee {{coins[0].name}} para vender</div>
-        <div v-else>
+        <div>
             <div v-if="accion == 'comprar'">
                 <h5>Precio de Compra ${{getPrice(this.coins[0].data.totalAsk)}}</h5>
             </div>
@@ -15,11 +15,22 @@
             <form class="col-xl-9" style="margin:auto;text-align:left" v-on:submit.prevent="submitForm">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Cantidad</label>
-                    <input type="number" class="form-control" :max='MaxCriptoAmount' min="0" step="0.0000000001" v-model.number="criptoAmount" @input="adjustMoneyAmount">
+                    <input 
+                    type="number" 
+                    class="form-control" 
+                    :max='MaxCriptoAmount' 
+                    min="0" 
+                    step="0.0000000001" 
+                    v-model.number="criptoAmount" 
+                    @input="adjustMoneyAmount">
                 </div><br>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Precio</label>
-                    <input  v-model.number="moneyAmount" @input="adjustCriptoAmount" class="form-control">
+                    <input  
+                    type="number"
+                    v-model="moneyAmount" 
+                    @input="adjustCriptoAmount" 
+                    class="form-control">
                 </div><br>
             <div v-if="accion == 'vender'">
                 <button type="buttom" class="btn btn-success" :disabled="criptoAmount<0 || moneyAmount<0 ||  criptoAmount>MaxCriptoAmount">{{accion}}</button>
@@ -108,8 +119,10 @@ export default {
             }
         },
         username() {
+            var loader = this.$loading.show({container: false,canCancel: true});
             var user = this.$store.state.username;
             this.array.user_id = user
+            loader.hide()
              return user
         },
         
@@ -122,7 +135,9 @@ export default {
             return ars
         },
         adjustMoneyAmount() {
-			if (this.accion == "comprar") {
+            debugger
+            var loader = this.$loading.show({container: false,canCancel: true});
+			if (this.accion === "comprar") {
 				this.moneyAmount = (
 					this.coins[0].data.totalAsk * this.criptoAmount
 				).toFixed(2);
@@ -131,9 +146,11 @@ export default {
 					this.coins[0].data.totalBid * this.criptoAmount
 				).toFixed(2);
 			}
+            loader.hide()
 		},
 		adjustCriptoAmount() {
             debugger
+            var loader = this.$loading.show({container: false,canCancel: true});
 			if (this.accion == "comprar") {
 				this.criptoAmount = (
 					this.moneyAmount / this.coins[0].data.totalAsk
@@ -143,6 +160,8 @@ export default {
 					this.moneyAmount / this.coins[0].data.totalBid
 				).toFixed(2);
 			}
+            loader.hide()
+
 		},
         submitForm(){
             let loader = this.$loading.show({container: false,canCancel: true});
