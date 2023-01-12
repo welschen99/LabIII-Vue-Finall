@@ -68,7 +68,7 @@
     methods: {
       onSubmit() {
         this.$store.commit('setUser', this.username);
-        this.$router.push({ name: 'Coins' });
+        this.$router.push({ name: 'Home' });
       },
     },
   };

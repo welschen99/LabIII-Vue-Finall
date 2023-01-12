@@ -39,10 +39,10 @@ export default {
     computed:{
         coins(){//accede la bbdd de vuex(busca en el store)
             let loader = this.$loading.show({container: false,canCancel: true});
-            var x = ''
             do{
                 var x = this.$store.state.coins
-            }while(x.lenght==0)
+                console.log(x)
+            }while(x.length==0)
             loader.hide()
             return x;//una computer propierty que busca de vuex la lista de technologies
         },

@@ -42,9 +42,8 @@ export default {
     },
   },
   beforeCreate() {//antes de que cargue todo, llama la lista de vuex
-        this.$store.commit("pullCripto"),
-        this.$store.commit("pullMovimientos")
-  },
+        this.$store.commit("pullCripto")
+    },
 }
 </script>
 

@@ -51,7 +51,8 @@ export default {
         }
     },
     beforeCreate() {//antes de que cargue todo, llama la lista de vuex
-        this.$store.commit("pullMovimientos")},
+        this.$store.commit("pullMovimientos")
+    },
     computed:{
         movimientos(){//accede la bbdd de vuex(busca en el store)
             let loader = this.$loading.show({container: false,canCancel: true});

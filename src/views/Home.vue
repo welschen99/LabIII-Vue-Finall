@@ -13,5 +13,7 @@
         <button type="button" class="btn btn-primary btn-lg" disabled >Para ver el contenido debera loguearse</button>
     </div>
 </template>
-<script setup>
+<script>
+export default {
+}
 </script>
