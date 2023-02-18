@@ -8,7 +8,7 @@
                     <th scope="col">Cantidad</th>
                     <th scope="col">Valor</th>
                     <th scope="col">Valor Actualizado</th>
-                    <th scope="col">Rentabilidad Actual <small>En caso de vender</small> </th>
+                    <th scope="col">Rentabilidad al vender </th>
                 </tr>
             </thead>
             <tbody>

@@ -16,24 +16,24 @@ export default createStore({
       state.username = name ;
     },
     pullCripto(state){
-        images.getImages()
-            .then(response =>{
-            state.coinsImages = response.data
-        })
+        // images.getImages()
+        //     .then(response =>{
+        //     state.coinsImages = response.data
+        // })
         cripto.getPrice('satoshitango','btc')
             .then(response =>{
             state.coins.push({
-                coin:state.coinsImages[0].symbol,
-                name:state.coinsImages[0].name,
-                image:state.coinsImages[0].image.large,
+                coin:'btc',
+                name:'Bitcoin',
+                image:'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png',
                 data:response.data})
         })
         cripto.getPrice('satoshitango','eth')
             .then(response =>{
                 state.coins.push({
-                    coin:state.coinsImages[1].symbol,
-                    name:state.coinsImages[1].name,
-                    image:state.coinsImages[1].image.large,
+                    coin:'eth',
+                    name:'Ethereum',
+                    image:'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',
                     data:response.data})
         })
         cripto.getPrice('satoshitango','usdc')
@@ -42,7 +42,7 @@ export default createStore({
               //cambian las posiciones del array con las imagenes
                 coin:'usdc',
                 name:'USD Coin',
-                image:"https://assets.coingecko.com/coins/images/6319/large/USD_Coin_icon.png?1547042389",
+                image:'https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png',
                 data:response.data})
         })
     },

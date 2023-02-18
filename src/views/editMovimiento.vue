@@ -105,6 +105,7 @@ export default {
     methods:{
         adjustMoneyAmount() {
             var loader = this.$loading.show({container: false,canCancel: true});
+            debugger
 			if (this.Item.action == "purchase") {
 				this.Item.money = (
 					parseFloat(this.div) * parseFloat(this.Item.crypto_amount)
@@ -117,6 +118,7 @@ export default {
             loader.hide()
 		},
 		adjustCriptoAmount() {
+            debugger
             var loader = this.$loading.show({container: false,canCancel: true});
 			if (this.Item.action == "purchase") {
 				this.Item.crypto_amount = (

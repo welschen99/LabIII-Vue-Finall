@@ -14,7 +14,7 @@
             </thead>
             <tbody>
                 <tr v-for="(coin,index) in coins" :key="index">
-                        <td><img :src="coin.image" style="width:20%" /></td>
+                        <td><img :src="coin.image" style="width:40%" /></td>
                         <td>{{coin.name}}</td>
                         <td>{{getPrice(coin.data.totalAsk)}}</td>
                         <td>{{getPrice(coin.data.totalBid)}}</td>
