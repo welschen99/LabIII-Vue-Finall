@@ -26,7 +26,7 @@
                 </div>
                 <br> 
             <div v-if="accion == 'vender'">
-                <button type="button" class="btn btn-success" @click="submitForm()"  :disabled="criptoAmount<=0 || moneyAmount<=0" v-bind:class="{ active: MaxCriptoAmount }">{{accion}}</button>
+                <button type="button" class="btn btn-success" @click="submitForm()"  v-bind:class="{ active: MaxCriptoAmount }">{{accion}}</button>
             </div>
             <div v-else>
                 <button type="button" class="btn btn-success" @click="submitForm()"   :disabled="criptoAmount<=0 || moneyAmount<=0">{{accion}}</button>
