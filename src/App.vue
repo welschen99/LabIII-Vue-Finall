@@ -14,13 +14,13 @@
         <a class="nav-link active" aria-current="page"><router-link style="color: #050a6b"   to="/home">Home</router-link></a>
       </li>
         <li class="nav-item">
-        <a class="nav-link active" aria-current="page"  v-if="username"><router-link style="color: #050a6b"  to="/movimientos">Movimientos</router-link></a> 
+        <a class="nav-link active" aria-current="page"  v-if="username" v-on:click="resumen=1"><router-link style="color: #050a6b"  to="/movimientos">Movimientos</router-link></a> 
       </li>
         <li class="nav-item">
-        <a class="nav-link active" aria-current="page" v-if="username"><router-link style="color: #050a6b;"  to="/coins">Coins</router-link></a>
+        <a class="nav-link active" aria-current="page" v-if="username" v-on:click="resumen=1"><router-link style="color: #050a6b"  to="/resumen">Resumen</router-link></a>
       </li>
-        <li class="nav-item">
-        <a class="nav-link active" aria-current="page" v-if="username"><router-link style="color: #050a6b"  to="/resumen">Resumen</router-link></a>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" v-if="username && resumen==1"><router-link style="color: #050a6b;"  to="/coins">Coins</router-link></a>
       </li>
     </ul>
       <a class="nav-link active justify-content-end" aria-current="page" style="color: #050a6b;" v-if="username != ''">Bienvenido  <strong>{{ username }} </strong> </a>
@@ -36,6 +36,11 @@
 
 <script>
 export default {
+  data(){
+        return{
+            resumen:0
+        }
+    },
   computed:{
     username() {
       return this.$store.state.username;
