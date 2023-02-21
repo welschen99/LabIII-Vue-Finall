@@ -15,6 +15,9 @@ export default createStore({
     setUser(state, name) {
       state.username = name ;
     },
+    adjustMoneyAmount (state, message) {
+      state.message = message
+  },
     pullCripto(state){
         // images.getImages()
         //     .then(response =>{

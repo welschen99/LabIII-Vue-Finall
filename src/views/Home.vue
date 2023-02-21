@@ -17,3 +17,41 @@
 export default {
 }
 </script>
+<!-- <template>
+    <html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div id="app">
+            {{xxx}}<br>
+            <input v-model='criptoAmount' @input="adjustMoneyAmount"/>
+            <input v-model='moneyAmount' @input="adjustCriptoAmount"/>
+        </div>
+    </body>
+</html>
+</template>
+<script>
+export default {
+    data() {
+        return { 
+            criptoAmount:0,  
+            moneyAmount:0      
+        }
+    },
+    computed: {
+        criptoAmount: {
+            set (value) {
+                this.$store.commit('adjustMoneyAmount', value)
+            }
+        },
+        moneyAmount:{
+            get () {
+                return this.$store.state.message
+            },
+        }
+    },
+}
+
+
+</script> -->

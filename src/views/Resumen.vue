@@ -115,7 +115,7 @@ export default {
             var options = {
                 labels: arr2,
             title: {
-              text: 'Fragmentacion del Monto Total Actualizado',
+              text: 'Monto Total Actualizado',
               align: 'left',
             },
         }
