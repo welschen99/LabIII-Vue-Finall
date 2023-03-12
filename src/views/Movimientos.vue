@@ -61,8 +61,8 @@ export default {
             Movimiento.deleteOperation(id)
             .then(response => {
                 console.log(response.data)
-                this.$swal( 'Eliminado',
-                            'Movimiento '+id+ ' Eliminado con Exito',
+                this.$swal( 'ELIMINADO',
+                            'Movimiento '+id+ ' eliminado con Exito',
                              'success');
                 loader.hide()
             })

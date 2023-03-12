@@ -189,7 +189,7 @@ export default {
                     this.array)
                 .then(response => {
                 this.$swal(  ''+this.accion+' '+this.id+'',
-                                'Movimiento de '+this.accion+' Realizado con exito por la cantidad de '+this.array.crypto_amount+'',
+                                'Movimiento de '+this.accion+' realizado con exito por la cantidad de '+this.array.crypto_amount+' '+this.id+' al precio de '+this.array.money+'',
                                 'success');
                     console.log(response.data)
                     loader.hide()
@@ -199,8 +199,8 @@ export default {
                 .catch((error)=> console.error(error)
                 );event.target.reset();
             }else{
-                this.$swal(  'Error al intentar '+this.accion,
-                            'la cantidad que intenta vender ('+this.array.crypto_amount+') es mayor a la que posee('+parseFloat(this.Max)+'),por favor vuelvalo a intentar',
+                this.$swal(  'ERROR  '+this.accion,
+                            'La cantidad que intenta vender ( '+this.criptoAmount+' ) es mayor a la que posee( '+parseFloat(this.Max)+' ),por favor vuelvalo a intentar',
                             'error');
             }
         },
