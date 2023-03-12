@@ -16,9 +16,8 @@
             <form class="col-xl-9" style="margin:auto;text-align:left" @submit.prevent="submitForm">
                 <div class="form-group">
                     <label>Cantidad</label>
-                    <input   v-model.number="criptoAmount" @input="adjustMoneyAmount" type="number" class="form-control" min="0"  step="0.0000000001">
+                    <input v-model.number="criptoAmount" @input="adjustMoneyAmount" type="number" class="form-control" min="0"  step="0.0000000001">
                     <!--:max='MaxCriptoAmount'--> 
-        
                 </div>
                 <div class="form-group">
                     <label >Precio</label>
@@ -59,6 +58,7 @@ export default {
             moneyAmount: 0, 
             totalAsk:0,
             totalBid:0,
+            Max:0,
             accion:this.accion, 
             array:{
                 user_id: '',
@@ -107,22 +107,26 @@ export default {
                     if(x.length==0){
                         var buscar =0
                         loader.hide()
+                        this.Max=buscar
                         return buscar
                     }else{
                         try{                    
                             var buscar = x.find(b=>b.crypto_code==coin)
                             loader.hide()
+                            this.Max=buscar.crypto_amount
                             return buscar.crypto_amount
                         }
                         catch{
                             var buscar =0
                             loader.hide()
+                            this.Max=buscar
                             return buscar
                         }
                     }
             }else{
                 let buscar = Number.MAX_VALUE
                 loader.hide()
+                this.Max=buscar
                 return buscar
             }
         } catch (error) {
@@ -173,24 +177,32 @@ export default {
 		},
         submitForm(event){
             debugger
-            let loader = this.$loading.show({container: false,canCancel: true});
-            this.array.user_id=this.$store.state.username
-            this.array.crypto_amount=this.criptoAmount.toString()
-            this.array.money=this.moneyAmount.toString()
-            this.array.datetime = new Date().toLocaleString('en-US', {timeZone: 'America/Buenos_Aires',})
-            this.accion == "comprar" ? this.array.action="purchase" : this.array.action="sale",
-            console.log(this.array)
-            Movimiento.postOperation(
-                this.array)
-            .then(response => {
-                alert('Accion realizada con exito')
-                console.log(response.data)
-                loader.hide()
-                
+            if (parseFloat(this.Max)>=this.criptoAmount || this.accion == "comprar"){
+                let loader = this.$loading.show({container: false,canCancel: true});
+                this.array.user_id=this.$store.state.username
+                this.array.crypto_amount=this.criptoAmount.toString()
+                this.array.money=this.moneyAmount.toString()
+                this.array.datetime = new Date().toLocaleString('en-US', {timeZone: 'America/Buenos_Aires',})
+                this.accion == "comprar" ? this.array.action="purchase" : this.array.action="sale",
+                console.log(this.array)
+                Movimiento.postOperation(
+                    this.array)
+                .then(response => {
+                this.$swal(  ''+this.accion+' '+this.id+'',
+                                'Movimiento de '+this.accion+' Realizado con exito por la cantidad de '+this.array.crypto_amount+'',
+                                'success');
+                    console.log(response.data)
+                    loader.hide()
+                    
+                }
+                )
+                .catch((error)=> console.error(error)
+                );event.target.reset();
+            }else{
+                this.$swal(  'Error al intentar '+this.accion,
+                            'la cantidad que intenta vender ('+this.array.crypto_amount+') es mayor a la que posee('+parseFloat(this.Max)+'),por favor vuelvalo a intentar',
+                            'error');
             }
-            )
-            .catch((error)=> console.error(error)
-            );event.target.reset();
         },
     }
 }

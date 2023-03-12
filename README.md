@@ -10,6 +10,7 @@ npm install axios
 npm install --save apexcharts
 npm install --save vue-apexcharts
 npm install vue-loading-overlay@^6.0 
+npm install -S vue-sweetalert2
 ```
 
 ### Compiles and hot-reloads for development

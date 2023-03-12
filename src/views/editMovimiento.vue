@@ -144,7 +144,9 @@ export default {
             .then(response => {
                 console.log(response.data)
                 loader.hide()
-                alert('Movimiento '+response.data._id+' editado con Exito')
+                this.$swal(  'OK',
+                                'Movimiento '+response.data._id+' editado con Exito',
+                                'success');
                 
             })
             .catch((error)=> console.error(error));
