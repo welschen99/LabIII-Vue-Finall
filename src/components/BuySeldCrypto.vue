@@ -1,6 +1,6 @@
 <template>
 	<div>
-        <div class="card border-primary mb-12 shadow-lg" style="max-width: 80%;margin:auto">
+        <div class="card border-success mb-12 shadow-lg" style="max-width: 80%;margin:auto">
         <div class="card-header"><h1 v-show="accion && id">{{accion}} {{id}} </h1></div>
          <div class="card-body">
             <div v-if="accion == 'comprar' && totalAsk!=0">

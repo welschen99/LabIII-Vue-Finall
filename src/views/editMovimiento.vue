@@ -1,6 +1,6 @@
 <template>
     <br>
-	<div class="card border-primary mb-12 shadow-lg" style="max-width: 80%;margin:auto">
+	<div class="card border-warning mb-12 shadow-lg" style="max-width: 80%;margin:auto">
         <div class="card-header"><h1>Editar Movimiento</h1></div>
         <div class="card-body">
 		<form v-on:submit.prevent="submitForm" class="col-xl-10" style="margin:auto;text-align:left">
@@ -30,7 +30,7 @@
                         <input class="form-control" disabled type="text" v-model="Item.datetime"/>
                 </div><br> 
                 <div class="form-group">
-                 <button class="btn btn-primary" :disabled="Item.crypto_amount<0 || Item.money<0 || Item.crypto_amount>maxValue ">Guardar</button> 
+                 <button class="btn btn-warning" :disabled="Item.crypto_amount<0 || Item.money<0 || Item.crypto_amount>maxValue ">Guardar</button> 
                 </div><br>
             </div>
         <div v-else>Cargando</div>
