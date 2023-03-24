@@ -15,11 +15,11 @@
                 </div><br>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Cantidad </label>
-                        <input class="form-control" type="number" min="0" step="0.0000000001" v-model="Item.crypto_amount" @input="adjustMoneyAmount"/>
+                        <input class="form-control" type="number" min="0" step="0.0000000001" v-model="Item.crypto_amount" @input="changeCantidad"/>
                 </div><br>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Precio </label>
-                        <input class="form-control" type="text" v-model.number="Item.money" @input="adjustCriptoAmount"/>
+                        <input class="form-control" type="text" v-model.number="Item.money" @input="changePrecio"/>
                 </div><br>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Accion </label>
@@ -103,7 +103,7 @@ export default {
         
     },
     methods:{
-        adjustMoneyAmount() {
+        changeCantidad() {
             var loader = this.$loading.show({container: false,canCancel: true});
             debugger
 			if (this.Item.action == "purchase") {
@@ -117,7 +117,7 @@ export default {
 			}
             loader.hide()
 		},
-		adjustCriptoAmount() {
+		changePrecio() {
             debugger
             var loader = this.$loading.show({container: false,canCancel: true});
 			if (this.Item.action == "purchase") {
@@ -144,9 +144,18 @@ export default {
             .then(response => {
                 console.log(response.data)
                 loader.hide()
-                this.$swal(  'EDITADO',
-                                'Movimiento '+response.data._id+' editado con Exito',
-                                'success');
+                this.$swal.fire({
+                    icon: 'success',
+                    title: 'EDITADO',
+                    text:'Movimiento '+response.data._id+' editado con Exito',
+                    showDenyButton: false,
+                    showCancelButton: false,
+                    confirmButtonText: '<router-link style="color: #050a6b"  to="/movimientos">OK</router-link>',
+                    }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        this.$router.go(-1)}
+                })
                 
             })
             .catch((error)=> console.error(error));

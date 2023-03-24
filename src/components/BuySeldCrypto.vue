@@ -16,12 +16,12 @@
             <form class="col-xl-9" style="margin:auto;text-align:left" @submit.prevent="submitForm">
                 <div class="form-group">
                     <label>Cantidad</label>
-                    <input v-model.number="criptoAmount" @input="adjustMoneyAmount" type="number" class="form-control" min="0"  step="0.0000000001">
+                    <input v-model.number="criptoAmount" @input="changePrecio" type="number" class="form-control" min="0"  step="0.0000000001">
                     <!--:max='MaxCriptoAmount'--> 
                 </div>
                 <div class="form-group">
                     <label >Precio</label>
-                    <input  v-model="moneyAmount"  @input="adjustCriptoAmount"  class="form-control">
+                    <input  v-model="moneyAmount"  @input="changeCantidad"  class="form-control">
                 </div>
                 <br> 
             <div v-if="accion == 'vender'">
@@ -142,7 +142,7 @@ export default {
                 'de-DE', { style: 'currency',currency: 'ARS' })
             return ars
         },
-        adjustMoneyAmount() {
+        changePrecio() {
             this.totalAsk=this.coins[0].data.totalAsk
             this.totalBid=this.coins[0].data.totalBid
             var loader = this.$loading.show({container: false,canCancel: true});
@@ -159,7 +159,7 @@ export default {
             }
             loader.hide()
 		},
-	     adjustCriptoAmount() {
+	     changeCantidad() {
             this.totalAsk=this.coins[0].data.totalAsk
             this.totalBid=this.coins[0].data.totalBid
             if(this.moneyAmount>0 ){
@@ -188,20 +188,38 @@ export default {
                 Movimiento.postOperation(
                     this.array)
                 .then(response => {
-                this.$swal(  ''+this.accion+' '+this.id+'',
-                                'Movimiento de '+this.accion+' realizado con exito por la cantidad de '+this.array.crypto_amount+' '+this.id+' al precio de '+this.array.money+'',
-                                'success');
+                this.$swal.fire({
+                    icon: 'success',
+                    title: ''+this.accion+' '+this.id+'',
+                    text:'Movimiento de '+this.accion+' realizado con exito por la cantidad de '+this.array.crypto_amount+' '+this.id+' al precio de '+this.array.money+'',
+                    showDenyButton: false,
+                    showCancelButton: false,
+                    confirmButtonText: '<router-link style="color: #050a6b"  to="/movimientos">OK</router-link>',
+                    }).then((result) => {
+                        debugger
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        this.$router.go(-2)}
+                    })
                     console.log(response.data)
                     loader.hide()
                     
                 }
                 )
                 .catch((error)=> console.error(error)
-                );event.target.reset();
+                )//;event.target.reset();
             }else{
-                this.$swal(  'ERROR  '+this.accion,
-                            'La cantidad que intenta vender ( '+this.criptoAmount+' ) es mayor a la que posee( '+parseFloat(this.Max)+' ),por favor vuelvalo a intentar',
-                            'error');
+                // this.$swal(  'ERROR  '+this.accion,
+                //             'La cantidad que intenta vender ( '+this.criptoAmount+' ) es mayor a la que posee( '+parseFloat(this.Max)+' ),por favor vuelvalo a intentar',
+                //             'error');
+                this.$swal.fire({
+                    icon: 'error',
+                    title: 'ERROR  '+this.accion,
+                    text:'La cantidad que intenta vender ( '+this.criptoAmount+' ) es mayor a la que posee( '+parseFloat(this.Max)+' ),por favor vuelvalo a intentar',
+                    showDenyButton: false,
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    })
             }
         },
     }

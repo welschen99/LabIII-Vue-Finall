@@ -3,7 +3,7 @@
         <BuySeldCrypto></BuySeldCrypto>
 </template>
 
-<script>
+<script>//aplicando manejo de components
 import BuySeldCrypto from '../components/BuySeldCrypto';
 export default {
 	name: "newMovimiento",

@@ -2,7 +2,7 @@
     <div>
         <h1>Movimientos</h1>
         <div v-if="movimientos.length==0">Buscando..</div>
-        <div>
+        <div v-else>
            <table name="tabla1" border="1" style="margin:auto" class="table table-hover  table-striped">
             <thead>
                 <tr class="table-info">

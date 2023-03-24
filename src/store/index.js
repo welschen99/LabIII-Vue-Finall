@@ -1,6 +1,6 @@
 import { createStore,createTo, storeKey } from 'vuex'
 import cripto from "../services/Cripto.js";
-import images from "../services/CriptoImages.js"
+import images from "../services/CriptoImages.js" //se desactivo momentaneamente por aranceles de la api
 import api from "../services/APIlab.js";
 //usamos vuex para generar las listas aca y poder usarlas en todas las otras vistas
 
@@ -19,7 +19,7 @@ export default createStore({
       state.message = message
   },
     pullCripto(state){
-        // images.getImages()
+        // images.getImages() 
         //     .then(response =>{
         //     state.coinsImages = response.data
         // })
@@ -42,7 +42,6 @@ export default createStore({
         cripto.getPrice('satoshitango','usdc')
             .then(response =>{
             state.coins.push({
-              //cambian las posiciones del array con las imagenes
                 coin:'usdc',
                 name:'USD Coin',
                 image:'https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png',

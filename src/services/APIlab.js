@@ -9,7 +9,7 @@ export default {
   getUserMovements(user) {//(user)
     return APIclient.get(`/transactions?q={"user_id": "${user}"}`);
   },
-  getMovimentsById(id) {//(user)
+  getMovimentsById(id) {
     return APIclient.get("/transactions/"+id);
   },
   postOperation(movimiento) {

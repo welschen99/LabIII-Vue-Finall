@@ -1,6 +1,6 @@
 # Lab lll - Proyecto Final - Vue 3
-https://vue-crypto-satoshi.netlify.app/
-
+Web page mounted for test code: https://vue-crypto-satoshi.netlify.app/
+User TEST:agu123
 
 ## Project setup
 ```
@@ -33,3 +33,5 @@ git remote add origin https://github.com/welschen99/LabIII-Vue-Finall.git
 git branch -M main  
 git push -u origin main
 ```
+
+- [@Agustín Welschen](https://www.github.com/welschen99)
