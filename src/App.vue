@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar flex-column navbar-expand-lg text-white" style="background-color: #e9e9e952">
+  <nav class="navbar flex-column navbar-expand-lg text-white" style="background-color: #1d43fb33">
   <div class="container-fluid">
     <a class="navbar-brand" href="/home"  style="color:#050a6b" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <img src="./assets/logo.svg" alt="Vue Logo"  >
