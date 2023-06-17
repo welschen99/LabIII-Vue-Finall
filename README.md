@@ -1,6 +1,15 @@
 # Lab lll - Proyecto Final - Vue 3
-Web page mounted for test code: https://vue-crypto-satoshi.netlify.app/
-User TEST:agu123
+
+###[Assignment for the final project of the Computer Laboratory III course](https://docs.google.com/document/d/19ZKeSIIHnpYRTzKMfWqzJCE-F-JxYznScslNWIlZQYg/edit)
+
+**Web page mounted for test code:**  https://vue-crypto-satoshi.netlify.app/
+**User for test web:** agu123
+
+
+###Views Example
+| LOGIN | HOME     |
+| :-------- | :------- |
+| ![Logo](src\assets\imagesREADME\login_web.png)|![Logo](src\assets\imagesREADME\home_web.png) |
 
 ## Project setup
 ```
@@ -33,5 +42,5 @@ git remote add origin https://github.com/welschen99/LabIII-Vue-Finall.git
 git branch -M main  
 git push -u origin main
 ```
-
+###Contributor
 - [@Agustín Welschen](https://www.github.com/welschen99)
