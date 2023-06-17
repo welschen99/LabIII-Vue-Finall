@@ -1,15 +1,15 @@
 # Lab lll - Proyecto Final - Vue 3
 
-###[Assignment for the final project of the Computer Laboratory III course](https://docs.google.com/document/d/19ZKeSIIHnpYRTzKMfWqzJCE-F-JxYznScslNWIlZQYg/edit)
+### [Assignment for the final project of the Computer Laboratory III course](https://docs.google.com/document/d/19ZKeSIIHnpYRTzKMfWqzJCE-F-JxYznScslNWIlZQYg/edit)
 
 **Web page mounted for test code:**  https://vue-crypto-satoshi.netlify.app/
 **User for test web:** agu123
 
 
-###Views Example
+### Views Example
 | LOGIN | HOME     |
 | :-------- | :------- |
-| ![Logo](src\assets\imagesREADME\login_web.png)|![Logo](src\assets\imagesREADME\home_web.png) |
+| ![Logo](src/assets/imagesREADME/login_web.png)|![Logo](src/assets/imagesREADME/home_web.png) |
 
 ## Project setup
 ```
