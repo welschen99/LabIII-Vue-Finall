@@ -3,6 +3,7 @@
 ### [Assignment for the final project of the Computer Laboratory III course](https://docs.google.com/document/d/19ZKeSIIHnpYRTzKMfWqzJCE-F-JxYznScslNWIlZQYg/edit)
 
 **Web page mounted for test code:**  https://vue-crypto-satoshi.netlify.app/
+ 
 **User for test web:** agu123
 
 
