@@ -1,4 +1,4 @@
-# Lab lll - Proyecto Final - Vue 3 - Cryptocurrency Exchange
+# Lab lll - Proyecto Final - Vue 3 CLI - Cryptocurrency Exchange
 
 ### [Assignment for the final project of the Computer Laboratory III course](https://docs.google.com/document/d/19ZKeSIIHnpYRTzKMfWqzJCE-F-JxYznScslNWIlZQYg/edit)
 
