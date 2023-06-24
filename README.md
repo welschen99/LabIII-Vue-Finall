@@ -1,4 +1,4 @@
-# Lab lll - Proyecto Final - Vue 3
+# Lab lll - Proyecto Final - Vue 3 - Cryptocurrency Exchange
 
 ### [Assignment for the final project of the Computer Laboratory III course](https://docs.google.com/document/d/19ZKeSIIHnpYRTzKMfWqzJCE-F-JxYznScslNWIlZQYg/edit)
 
@@ -39,7 +39,7 @@ npm run build
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-### Subir al repositorio de Github
+### *Commands used for push code in* GitHub *repositore*
 ```
 git remote add origin https://github.com/welschen99/LabIII-Vue-Finall.git
 git branch -M main  
