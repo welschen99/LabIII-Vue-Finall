@@ -12,6 +12,8 @@
 | :-------- | :------- |
 | ![Logo](src/assets/imagesREADME/login_web.png)|![Logo](src/assets/imagesREADME/home_web.png) |
 
+Project created with previously defined packages when installing vue project as **Babel, Vuex** and **Router**
+
 ## Project setup
 ```
 npm install
